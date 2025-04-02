@@ -72,3 +72,11 @@ class BorrowingHistory(Base):
     book = relationship("Book", back_populates="borrow_history")
     borrower = relationship("Borrower", back_populates="borrow_history")
     
+
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, unique=True, index=True)
+    email = Column(String, unique=True, index=True)
+    password_hash = Column(String)

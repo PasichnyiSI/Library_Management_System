@@ -5,6 +5,7 @@ import app.routers.genres as genres
 import app.routers.publishers as publishers
 import app.routers.borrowers as borrowers
 import app.routers.borrowing_history as borrowing_history
+import app.routers.auth as auth
 from .database import Base, engine
 
 Base.metadata.create_all(bind=engine)
@@ -17,3 +18,4 @@ app.include_router(genres.router)
 app.include_router(publishers.router)
 app.include_router(borrowers.router)
 app.include_router(borrowing_history.router)
+app.include_router(auth.router)
