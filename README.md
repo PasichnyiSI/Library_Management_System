@@ -39,6 +39,7 @@
 - `tests/`: Частина програми, яка містить всі тести.
 - `Dockerfile`: Налаштування для Docker.
 - `docker-compose.yml`: Налаштування для Docker Compose.
+- `alembic.ini`: Файл налаштування Alembic.
 - `requirements.txt`: Список залежностей Python для проєкту.
 - `openapi.json`: Згенерований файл документації OpenAPI у форматі JSON.
 - `openapi.yaml`: Згенерований файл документації OpenAPI у форматі YAML.
