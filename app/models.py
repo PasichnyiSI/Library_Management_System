@@ -25,7 +25,7 @@ class Author(Base):
     __tablename__ = "authors"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True, unique=True)
+    name = Column(String, index=True, unique=True, nullable=False)
     birthdate = Column(Date, nullable=True)
 
     books = relationship("Book", back_populates="author")
@@ -35,7 +35,7 @@ class Genre(Base):
     __tablename__ = "genres"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, unique=True)
+    name = Column(String, unique=True, nullable=False)
 
     books = relationship("Book", back_populates="genre")
 
@@ -44,7 +44,7 @@ class Publisher(Base):
     __tablename__ = "publishers"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, unique=True)
+    name = Column(String, unique=True, nullable=False)
     established_date = Column(Date, nullable=True)
 
     books = relationship("Book", back_populates="publisher")
@@ -54,8 +54,8 @@ class Borrower(Base):
     __tablename__ = "borrowers"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    email = Column(String, unique=True)
+    name = Column(String, index=True, nullable=False)
+    email = Column(String, unique=True, nullable=False)
 
     borrow_history = relationship("BorrowingHistory", back_populates="borrower")
 

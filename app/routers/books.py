@@ -11,8 +11,8 @@ def get_books(
     db: Session = Depends(get_db),
     limit: int = Query(10, ge=1, le=100, description="Кількість книг на сторінці"),
     offset: int = Query(0, ge=0, description="Зміщення для пагінації"),
-    sort_by: str = Query("title", regex="^(title|author|published_year)$", description="Поле для сортування"),
-    order: str = Query("asc", regex="^(asc|desc)$", description="Порядок сортування (asc/desc)")
+    sort_by: str = Query("title", pattern="^(title|author|published_year)$", description="Поле для сортування"),
+    order: str = Query("asc", pattern="^(asc|desc)$", description="Порядок сортування (asc/desc)")
 ):
     sort_field = {
         "title": models.Book.title,
