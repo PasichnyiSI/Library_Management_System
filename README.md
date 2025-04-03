@@ -72,7 +72,7 @@ docker-compose up --build
 
 Створіть файл .env в корені проєкту і додайте наступні змінні середовища:
 ```env
-DATABASE_URL_lms=postgres://library_user:library_password@db:5432/library_db
+DATABASE_URL_lms=postgresql://library_user:library_password@db:5432/library_db
 
 SECRET_KEY=mysecretkey
 ALGORITHM=HS256
