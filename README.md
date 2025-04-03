@@ -138,7 +138,6 @@ target_metadata = Base.metadata
 ```bash
 docker-compose exec app alembic upgrade head
 ```
-Це застосує останні міграції бази даних.
 
 Корисні команди:
 
