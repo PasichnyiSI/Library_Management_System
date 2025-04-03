@@ -93,25 +93,15 @@ docker-compose exec app alembic init app/migrations
 
 ```python
 from logging.config import fileConfig
-
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
 from alembic import context
 
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
 config = context.config
 
-# Interpret the config file for Python logging.
-# This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
 target_metadata = None
 ```
 
@@ -119,12 +109,9 @@ target_metadata = None
 
 ```python
 from logging.config import fileConfig
-
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
 from alembic import context
-
 from app.database import Base
 import os
 from dotenv import load_dotenv
@@ -136,19 +123,12 @@ database_url = os.getenv("DATABASE_URL_lms")
 if not database_url:
     raise ValueError("DATABASE_URL не знайдено в .env!")
 
-# this is the Alembic Config object, which provides
-# access to the values within the .ini file in use.
 config = context.config
 config.set_main_option("sqlalchemy.url", database_url)
-# Interpret the config file for Python logging.
-# This line sets up loggers basically.
+
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 ```
 Зміни зберегти.
@@ -158,6 +138,20 @@ target_metadata = Base.metadata
 docker-compose exec app alembic upgrade head
 ```
 Це застосує останні міграції бази даних.
+
+Корисні команди:
+
+Для перевірки таблиць:
+
+```bash
+docker-compose exec db psql -U library_user -d library_db -c "\dt"
+```
+
+Для ініціалізації нової міграції
+
+```bash
+docker-compose exec app alembic revision --autogenerate -m "Initial migration"
+```
 
 ## Взаємодія з API
 
