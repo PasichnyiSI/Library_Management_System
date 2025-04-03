@@ -90,11 +90,52 @@ http://localhost:8000/docs
 
 Документація дозволяє вам тестувати кінцеві точки API безпосередньо через інтерфейс браузера.
 
-- GET /books: Отримати список всіх книг.
-- POST /books: Додати нову книгу.
+#### Books
+- GET /books/: Отримати список всіх книг.
+- POST /books/: Додати нову книгу.
 - GET /books/{book_id}: Отримати деталі конкретної книги за її ID.
-- PUT /books/{book_id}: Оновити дані книги.
 - DELETE /books/{book_id}: Видалити книгу.
+- GET /books/books/{book_id}/history: Отримати історію записів позичання конкретної книги.
+
+#### Authors
+- GET /authors/: Отримати список всіх авторів.
+- POST /authors/: Додати нового автора.
+- GET /authors/{author_id}: Отримати деталі конкретного автора за його ID.
+- DELETE /authors/{author_id}: Видалити автора.
+- GET /authors/{author_id}/books: Отримати всі книги конкретного автора.
+
+#### Genres
+- GET /genres/: Отримати список всіх жанрів.
+- POST /genres/: Додати новий жанр.
+- GET /genres/{genre_id}: Отримати деталі конкретного жанра за його ID.
+- DELETE /genres/{genre_id}: Видалити жанр.
+
+#### Publishers
+- GET /publishers/: Отримати список всіх видавництв.
+- POST /publishers/: Додати нове видавництво.
+- GET /publishers/{publisher_id}: Отримати деталі конкретного видавництва за його ID.
+- DELETE /publishers/{publisher_id}: Видалити видавництво.
+
+#### Borrowers
+- GET /borrowers/: Отримати список всіх читачів.
+- POST /borrowers/: Додати нового читача.
+- GET /borrowers/{borrower_id}: Отримати деталі конкретного читача за його ID.
+- DELETE /borrowers/{borrower_id}: Видалити читача.
+
+#### Borrowing History
+- GET /borrowing_history/: Отримати список всіх записів про взяття книжок.
+- POST /borrowing_history/: Додати новий запис про взяття книжки.
+- GET /borrowing_history/{record_id}: Отримати деталі конкретного запису за його ID.
+- DELETE /borrowing_history/{record_id}: Видалити запис.
+- PUT /borrowing_history/{borrowing_id}/return: Повернути книгу по ID запису взяття цієї книги.
+
+#### Authentication
+- GET /register: Зареєструвати користувача.
+- POST /login: Увійти в обліковий запис для отримання токену доступу.
+
+## Валідація
+
+
 
 ## Тестування
 
